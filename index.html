@@ -8,9 +8,45 @@
             // Seleccionar elemento "app"
             const app = document.getElementById("app");
 
+            // Crear función header (desectructurada)
+            function Header({ title }) {
+                console.log("🚀 ~ Header ~ title:", title);
+                return <h1>{`Cool ${createTitle(title)}`}</h1>
+            }
+
+            // Crear función Header (sin desestructurar)
+            function HeaderVanilla(props) {
+                console.log("🚀 ~ HeaderVanilla ~ props:", props);
+                console.log("🚀 ~ HeaderVanilla ~ title:", props.title);
+                return <h1>{ props.title }</h1>
+            }
+
+            // Crear función Header (operador ternario)
+            function HeaderTernary({ title }) {
+                console.log("🚀 ~ HeaderTernary ~ title:", title);
+                return <h1>{`Cool ${title ? title : "Default Title"}`}</h1>
+            }
+            // Crear función HomePage
+            function HomePage() {
+                return <div>
+                    {/* El Header está dentro del HomePage */}
+                    <HeaderTernary title="React" />
+                    <HeaderTernary title="A newnewnewnewwhatever title" />
+                </div>
+            }
+
+            // Crear función createTitle
+            function createTitle(title) {
+                if (title) {
+                    return title;
+                } else {
+                    return "Default title";
+                }
+            }
+
             // Usar createRoot() de ReactDOM
             const root = ReactDOM.createRoot(app);
-            root.render(<h1>Develop. Preview. Ship.</h1>)
+            root.render(<HomePage />);
         </script>
     </body>
 </html>
