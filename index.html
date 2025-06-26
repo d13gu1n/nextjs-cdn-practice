@@ -28,10 +28,25 @@
             }
             // Crear función HomePage
             function HomePage() {
+                const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
+                const [likes, setLikes] = React.useState(0);
+                function handleClick() {
+                    setLikes(likes + 1);
+                    console.log("Increment like count ---> ", likes);
+                }
                 return <div>
                     {/* El Header está dentro del HomePage */}
                     <HeaderTernary title="React" />
                     <HeaderTernary title="A newnewnewnewwhatever title" />
+                    <Header title="Develop. Preview. Ship." />
+                    <ul>
+                        {
+                            names.map((name, i) => (
+                            <li key={ i }>{ name }</li>
+                        ))
+                    }
+                    </ul>
+                    <button onClick={handleClick}>Like ({ likes })</button>
                 </div>
             }
 
