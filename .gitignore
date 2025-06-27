@@ -1,0 +1,11 @@
+# VS Code config
+.vscode/*
+
+# NEXTJS config
+.next/*
+
+# node_modules
+node_modules/*
+
+# package-lock
+package-lock.json
